@@ -27,7 +27,7 @@ Disclaimer & Warnings
 
 The setup script might overwrite your existing config files (e.g ~/.indent.pro).
 It does not make any copy of the files it destroys.
-This could be an future enhancement.
+This could be a future enhancement.
 
 I am not responsible for the use you make of these materials.
 You are the only responsible for it.
