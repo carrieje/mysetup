@@ -15,7 +15,6 @@
 [core]
 	pager = less -R
         editor = gvim
-	excludesfile = /user/9/carrieje/mysetup/.global_gitignore
 
 [diff]
 	tool = gvimdiff
