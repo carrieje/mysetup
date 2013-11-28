@@ -25,9 +25,9 @@ If you want to use my config files, follow these easy steps :
 Disclaimer & Warnings
 =====================
 
-The setup script might overwrite your existing config files (e.g ~/.indent.pro).
-It does not make any copy of the files it destroys.
-This could be a future enhancement.
+The setup script might overwrite your existing config files (e.g ~/.indent.pro) if you confirm it.
+It does  make a copy of the overwritten file, renaming them "*.~#~"
+With all the care I put in this development, it may contain bugs.
 
 I am not responsible for the use you make of these materials.
 You are the only responsible for it.
