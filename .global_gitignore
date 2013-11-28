@@ -40,6 +40,15 @@
 ehthumbs.db
 Thumbs.db
 
+# CTags files #
+tags
+
+# Compiled LaTeX #
+##################
+*.aux
+*.bbl
+*.blg
+
 # Editor Artifacts #
 ####################
 # Temporary files
