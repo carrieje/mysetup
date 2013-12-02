@@ -1,0 +1,15 @@
+CC=pdflatex
+BC=bibtex
+
+VIEWER=evince
+
+SRC=*.tex
+OUT=CompteRendu.pdf
+
+all:$(OUT)
+
+$(OUT):$(SRC)
+	$(CC) $<; $(BC) $(<%.tex); $(CC) $<; $(CC) $<
+
+view:
+	$(VIEWER) $(OUT)
