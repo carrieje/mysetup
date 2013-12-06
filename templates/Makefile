@@ -25,7 +25,7 @@ OBJ  = $(SRC:.$(EXT)=.o)
 # TARGETS
 all: $(EXEC)
 
-iidcTk: $(OBJ)
+$(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
