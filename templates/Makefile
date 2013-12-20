@@ -1,22 +1,23 @@
 ####
-# HEADERS
-H_PACKAG = $(shell echo `pkg-config --cflags PACKAG`)    #TODO
-ALL_HDRS = $(H_PACKAG)                                   #TODO mettre les $(H_*)
-
-####
-#LIBRARIES
-L_PACKAG = `pkg-config --libs PACKAG`                    #TODO
-ALL_LIBS =                                               #TODO mettre les $(L_*)
+# CUSTOMIZATION
+EXTENSION = cpp
+PACKAGES  =
+COMPILER  = g++
+EXTRAINCL =
+EXTRALIBS =
 
 
 ####
 # COMPILATION
-CC      = g++                                            #TODO g++ gcc
-CFLAGS  = -W -Wall -ansi -pedantic $(ALL_HDRS)
+ALL_HDRS = $(foreach pack, $(PACKAGES), $(shell echo `pkg-config --cflags $(pack)`)) $(EXTRAINCL)
+ALL_LIBS = $(foreach pack, $(PACKAGES), `pkg-config --libs $(pack)`) $(EXTRALIBS)
+
+CC      = $(COMPILER)
+CFLAGS  = -W -Wall -std=c99 -pedantic $(ALL_HDRS)
 LDFLAGS = $(ALL_LIBS)
 
-EXEC = a.out                                             #TODO
-EXT  = cpp                                               #TODO cpp cc c
+EXEC = a.out
+EXT  = $(EXTENSION)
 SRC  = $(wildcard *.$(EXT))
 OBJ  = $(SRC:.$(EXT)=.o)
 
@@ -28,13 +29,16 @@ all: $(EXEC)
 $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-%.o: %.cpp
+%.o: %.$(EXT)
 	$(CC) -o $@ -c $< $(CFLAGS)
 
-.PHONY: clean mrproper
+.PHONY: clean mrproper list
 
 clean:
 	rm -rf *.o
 
 mrproper: clean
 	rm -rf $(EXEC)
+
+list:
+	@echo -e "Sources $(SRC)\nObjets  $(OBJ)"

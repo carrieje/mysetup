@@ -28,3 +28,7 @@ function setwd {
 	echo $PWD/$1 > $MYSETUP_PATH/.current_working_dir;
 }
 export -f setwd
+
+# Create a directory and jump to it
+function mkcd { mkdir $1 && cd $1; }
+export -f mkcd
