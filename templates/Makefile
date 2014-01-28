@@ -26,7 +26,7 @@ OBJ  = $(SRC:.$(EXT)=.o)
 
 ####
 # TARGETS
-all: _pkg_availability $(MAINS:.$(EXT)=)
+all: pkgs-avail $(MAINS:.$(EXT)=)
 
 .SECONDEXPANSION:
 
@@ -36,7 +36,7 @@ $(MAINS:.$(EXT)=): $(OBJ) $$(@).o
 %.o: %.$(EXT)
 	$(CC) -o $@ -c $< $(CFLAGS)
 
-.PHONY: clean mrproper list _pkg_availability testpkg
+.PHONY: clean mrproper list pkgs-avail pkgs-version
 
 clean:
 	rm -rf $(OBJ) $(MAINS:.$(EXT)=.o)
@@ -47,13 +47,13 @@ mrproper: clean
 list:
 	@echo -e "Sources $(SRC)\nObjets  $(OBJ)"
 
-testpkg:
+pkgs-version:
 	@for p in $(PACKAGES); do \
 		echo -n "$$p : "; \
 		pkg-config --modversion $$p; \
 	done
 
-_pkg_availability:
+pkgs-avail:
 	@for p in $(PACKAGES); do \
 		pkg-config --exists $$p; \
 		if [ $$? -ne 0 ]; then \
