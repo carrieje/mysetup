@@ -1,3 +1,4 @@
+# MAKY -- v2.1
 ####
 # CUSTOMIZATION
 EXTENSION = cpp
@@ -35,7 +36,7 @@ $(EXEC): $(OBJ)
 .PHONY: clean mrproper list _pkg_availability testpkg
 
 clean:
-	rm -rf *.o
+	rm -rf $(OBJ)
 
 mrproper: clean
 	rm -rf $(EXEC)
