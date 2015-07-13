@@ -9,6 +9,9 @@ alias grep=" grep --color=auto"
 ####
 # More specific
 
+# Compress PDFs
+function compresspdf { gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${1%.pdf}_compressed.pdf" "$1"; }
+
 # Import a template
 function template { cp -i "$MYSETUP_PATH/templates/$1" .; }
 export -f template
