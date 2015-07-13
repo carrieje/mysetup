@@ -4,6 +4,9 @@
 # Personal aliases
 source $MYSETUP_PATH/bash_aliases
 
+# Git addons
+source $MYSETUP_PATH/gitaddons.sh
+
 
 # GCC coloration        #
 #########################
