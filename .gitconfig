@@ -25,6 +25,7 @@
     br = branch
     co = checkout
     df = diff
+    putsch = push --force
     amend = commit --amend
     fixup = commit --fixup
     autosquash = rebase -i --autosquash
